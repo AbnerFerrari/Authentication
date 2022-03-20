@@ -9,9 +9,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Authentication.Domain", "Au
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Authentication.Api", "Authentication.Api\Authentication.Api.csproj", "{B07B4D7F-2E8C-4205-AA45-FBD9A53B264C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Authentication.Test", "Authentication.Test\Authentication.Test.csproj", "{983BB745-0E0E-478E-8FB7-6DEC3A7B30F9}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Authentication.Infrastructure", "Authentication.Infrastructure\Authentication.Infrastructure.csproj", "{01401E46-B46F-4BF7-9732-7831184EE652}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Authentication.Test", "Authentication.Test\Authentication.Test.csproj", "{E6587086-6E3D-4561-B74C-80696DAF5511}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -34,13 +34,13 @@ Global
 		{B07B4D7F-2E8C-4205-AA45-FBD9A53B264C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B07B4D7F-2E8C-4205-AA45-FBD9A53B264C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B07B4D7F-2E8C-4205-AA45-FBD9A53B264C}.Release|Any CPU.Build.0 = Release|Any CPU
-		{983BB745-0E0E-478E-8FB7-6DEC3A7B30F9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{983BB745-0E0E-478E-8FB7-6DEC3A7B30F9}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{983BB745-0E0E-478E-8FB7-6DEC3A7B30F9}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{983BB745-0E0E-478E-8FB7-6DEC3A7B30F9}.Release|Any CPU.Build.0 = Release|Any CPU
 		{01401E46-B46F-4BF7-9732-7831184EE652}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{01401E46-B46F-4BF7-9732-7831184EE652}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{01401E46-B46F-4BF7-9732-7831184EE652}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{01401E46-B46F-4BF7-9732-7831184EE652}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E6587086-6E3D-4561-B74C-80696DAF5511}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E6587086-6E3D-4561-B74C-80696DAF5511}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E6587086-6E3D-4561-B74C-80696DAF5511}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E6587086-6E3D-4561-B74C-80696DAF5511}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
