@@ -37,7 +37,7 @@ public class BaseService<T> : IService<T> where T : Entity
 
         public async Task Update(T entity)
         {
-            entity.UpdateDate = DateTime.Now;
+            entity.UpdateDate = DateTime.Now.ToUniversalTime();
             await _repository.Update(entity);
         }
     }

@@ -35,13 +35,16 @@
             "name": "Client",
             "type": "blazorwasm",
             "request": "launch",
-            "cwd": "${workspaceFolder}/Authentication.WebAssembly"
+            "cwd": "${workspaceFolder}/Authentication.WebAssembly",
+            "browser": "edge",
+            "url": "https://localhost:7211",
+            "preLaunchTask":  "watch",
         }
     ],
     "compounds": [
         {
             "name": "Server/Client",
-            "configurations": ["Server", "Client"]
+            "configurations": ["Server", "Client"],
         }
     ]
 }

@@ -2,19 +2,17 @@ using Microsoft.EntityFrameworkCore;
 
 public sealed class AuthenticationContext : DbContext
 {
-    private AppSettings _appSettings;
+    private readonly AppSettings _appSettings;
 
-    public AuthenticationContext(AppSettings appSettings)
+    public AuthenticationContext(DbContextOptions<AuthenticationContext> options, AppSettings appSettings) : base(options)
     {
         _appSettings = appSettings;
     }
 
-    public AuthenticationContext(DbContextOptions<AuthenticationContext> options) : base(options)
-    { }
-
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
-        base.OnConfiguring(optionsBuilder.UseNpgsql(_appSettings.ConnectionString));
+        optionsBuilder.UseNpgsql(_appSettings.ConnectionString).UseSnakeCaseNamingConvention();
+        base.OnConfiguring(optionsBuilder);
     }
 
     public DbSet<User> Users { get; set; }

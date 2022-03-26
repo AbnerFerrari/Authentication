@@ -3,10 +3,12 @@ using System.Linq.Expressions;
 public class BaseRepository<T> : IRepository<T> where T : Entity
     {
         private readonly AuthenticationContext _context;
+
         public BaseRepository(AuthenticationContext context)
         {
             _context = context;
         }
+        
         public async Task Delete(T entity)
         {
             _context.Remove<T>(entity);

@@ -15,8 +15,6 @@ public class AuthenticationContextFactory : IDesignTimeDbContextFactory<Authenti
 
         AppSettings appSettings = configuration.GetSection(nameof(AppSettings)).Get<AppSettings>();
 
-        optionsBuilder.UseNpgsql(appSettings.ConnectionString);
-
-        return new AuthenticationContext(appSettings);
+        return new AuthenticationContext(optionsBuilder.Options, appSettings);
     }
 }
