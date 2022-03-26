@@ -14,7 +14,7 @@ public class AuthenticationService
         public async Task<LoginResponse> Authenticate(LoginRequest loginRequest)
         {
 
-            var userInDb = await _userService.Get(x => x.Username == loginRequest.Email && x.Password == loginRequest.Password);
+            var userInDb = await _userService.Get(x => x.Email == loginRequest.Email && x.Password == loginRequest.Password);
             if (userInDb != null)
             {
                 var loginResponse = new LoginResponse
