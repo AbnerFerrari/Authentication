@@ -32,6 +32,7 @@ public class BaseService<T> : IService<T> where T : Entity
 
         public async Task Insert(T entity)
         {
+            entity.UpdateDate = entity.InsertionDate = DateTime.Now.ToUniversalTime();
             await _repository.Insert(entity);
         }
 

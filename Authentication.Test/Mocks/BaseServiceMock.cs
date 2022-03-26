@@ -36,11 +36,13 @@ namespace Authentication.Test.Mocks
 
         public Task Insert(T entity)
         {
+            entity.UpdateDate = entity.InsertionDate = DateTime.Now.ToUniversalTime();
             return _repository.Insert(entity);
         }
 
         public Task Update(T entity)
         {
+            entity.UpdateDate = DateTime.Now.ToUniversalTime();
             return _repository.Update(entity);
         }
     }

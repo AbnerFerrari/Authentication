@@ -2,19 +2,23 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Design;
 
-public class AuthenticationContextFactory : IDesignTimeDbContextFactory<AuthenticationContext>
+namespace Authentication.Infrastructure
 {
-    public AuthenticationContext CreateDbContext(string[] args)
+    internal class AuthenticationContextFactory : IDesignTimeDbContextFactory<AuthenticationContext>
     {
-        var optionsBuilder = new DbContextOptionsBuilder<AuthenticationContext>();
+        public AuthenticationContext CreateDbContext(string[] args)
+        {
+            var optionsBuilder = new DbContextOptionsBuilder<AuthenticationContext>();
 
-        IConfigurationRoot configuration = new ConfigurationBuilder()
-                .SetBasePath(Directory.GetCurrentDirectory())
-                .AddJsonFile("appsettings.json")
-                .Build();
+            IConfigurationRoot configuration = new ConfigurationBuilder()
+                    .SetBasePath(Directory.GetCurrentDirectory())
+                    .AddJsonFile("appsettings.json")
+                    .Build();
 
-        AppSettings appSettings = configuration.GetSection(nameof(AppSettings)).Get<AppSettings>();
+            AppSettings appSettings = configuration.GetSection(nameof(AppSettings)).Get<AppSettings>();
 
-        return new AuthenticationContext(optionsBuilder.Options, appSettings);
+            return new AuthenticationContext(optionsBuilder.Options, appSettings);
+        }
     }
 }
+

@@ -1,4 +1,6 @@
 using System.Threading.Tasks;
+using Authentication.Test.Factories;
+using Bogus;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
@@ -18,12 +20,7 @@ namespace Authentication.Test.Services
         [TestMethod]
         public async Task Get()
         {
-            var user = new User
-            {
-                Password = "Arroz",
-                Username = "Abner Ferrari",
-                Role = "Administrador"
-            };
+            var user = UserFactory.New();
 
             await service.Insert(user);
 
@@ -38,12 +35,8 @@ namespace Authentication.Test.Services
             //Arrange
 
             //Act
-            var user = new User
-            {
-                Password = "Arroz",
-                Username = "Abner Ferrari",
-                Role = "Administrador"
-            };
+            var user = UserFactory.New();
+
 
             await service.Insert(user);
 
@@ -55,36 +48,29 @@ namespace Authentication.Test.Services
         public async Task Update()
         {
             //Arrange
-            var user = new User
-            {
-                Password = "Arroz",
-                Username = "Abner Ferrari",
-                Role = "Administrador"
-            };
+            var user = UserFactory.New();
 
             await service.Insert(user);
 
             user = await service.Get(user.Id);
-
+            var newUsername = "Tiririca";
             //Act
-            user.Username = "Tiririca";
+            user.Username = newUsername;
 
             await service.Update(user);
+            
+            user = await service.Get(user.Id);
 
             //Assert
-            Assert.IsTrue(user.Username == "Tiririca" && user.UpdateDate != user.InsertionDate);
+            Assert.IsTrue(user.Username == newUsername && user.UpdateDate != user.InsertionDate);
         }
 
         [TestMethod]
         public async Task Delete()
         {
             //Arrange
-            var user = new User
-            {
-                Password = "Arroz",
-                Username = "Abner Ferrari",
-                Role = "Administrador"
-            };
+
+            var user = UserFactory.New();
 
             await service.Insert(user);
 
@@ -92,6 +78,7 @@ namespace Authentication.Test.Services
             var userId = user.Id;
             //Act
             await service.Delete(user);
+
             user = await service.Get(userId);
 
             //Assert
